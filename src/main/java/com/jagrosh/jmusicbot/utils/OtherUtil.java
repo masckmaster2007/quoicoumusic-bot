@@ -173,38 +173,11 @@ public class OtherUtil
     
     public static String getCurrentVersion()
     {
-        if(JMusicBot.class.getPackage()!=null && JMusicBot.class.getPackage().getImplementationVersion()!=null)
-            return JMusicBot.class.getPackage().getImplementationVersion();
-        else
-            return "UNKNOWN";
+        return "0.3.9"; // your mom
     }
     
     public static String getLatestVersion()
     {
-        try
-        {
-            Response response = new OkHttpClient.Builder().build()
-                    .newCall(new Request.Builder().get().url("https://api.github.com/repos/jagrosh/MusicBot/releases/latest").build())
-                    .execute();
-            ResponseBody body = response.body();
-            if(body != null)
-            {
-                try(Reader reader = body.charStream())
-                {
-                    JSONObject obj = new JSONObject(new JSONTokener(reader));
-                    return obj.getString("tag_name");
-                }
-                finally
-                {
-                    response.close();
-                }
-            }
-            else
-                return null;
-        }
-        catch(IOException | JSONException | NullPointerException ex)
-        {
-            return null;
-        }
+        return "0.3.9"; // your mom
     }
 }
